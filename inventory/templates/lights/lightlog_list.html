@@ -1,0 +1,28 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static "lights/styles.css" %}">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Logs</h2>
+    <ul>
+        {% for log in object_list %}
+
+        <li>{{ log }}
+            {% if log.lights_added  %}
+            | Added: <span class="tab">{{ log.lights_added }} </span><span class="tab">{{ log.light }}</span>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>
